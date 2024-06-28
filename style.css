@@ -20,8 +20,8 @@ calcula automaticamente as larguras considerando: conteudo,bordas,margens e padd
     
 }
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*seleciona o header e coloca a cor do fundo e um espaçamento interno*/
-header{
+/*seleciona o header e o footer e coloca a cor do fundo e um espaçamento interno*/
+header, footer {
     background-color: var(--primaria);
     padding: 1rem;
 }
@@ -40,6 +40,7 @@ nav{
     text-align: center;
     padding: 0.25rem;
     gap: 0.5rem;
+    align-items: center;
 }
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*seleciona todos os links dentro de navs
@@ -63,3 +64,45 @@ alinha os itens na vertical com base no seu centro*/
     justify-content: space-between;
     align-items: center;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;    
+}
+main {
+    flex-grow: 1;
+    background-color: var(--terciaria);
+   
+}
+#index {
+    background-image: url(livro.jpeg);  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+
+}
+
+footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: var(--terciaria);
+    text-align: center;
+    
+}
+
+#copy {
+    text-align: start;
+}
+alinhar{
+    display: flex;
+    align-items: center;
+}
+.img-fim img {
+    display: flex;
+    justify-content: end;
+}
+.img-fim img {
+    margin: 0 1rem;
+}
+
