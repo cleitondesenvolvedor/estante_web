@@ -1,109 +1,472 @@
-/*acessa o elemento root e cria variaveis globais*/
-:root{
-    --primaria: #915f32;
-    --secundaria:#ce9056;
-    --terciaria: #e1e6eb;
-    --branco:white ;
-    --preto: black;
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-}
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*acessa todos os elementos
-remove todas as margens
-remove todos os paddings
-calcula automaticamente as larguras considerando: conteudo,bordas,margens e paddings*/
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;   
-
-    
-}
-/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*seleciona o header e o footer e coloca a cor do fundo e um espaçamento interno*/
-header, footer {
-    background-color: var(--primaria);
-    padding: 1rem;
-}
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*seleciona o nav
-coloca cor de fundo
-muda display para grid
-cria uma coluna em 5 colunas de largura igual
-alinha o texto no centro da coluna
-espaçamentointerno
-espaço entre as colunas e linhas do grid*/
-nav{
-    background-color: var(--secundaria);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    text-align: center;
-    padding: 0.25rem;
-    gap: 0.5rem;
-    align-items: center;
-    justify-items: center;
-}
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*seleciona todos os links dentro de navs
-remove a decoração dos links
-muda a cor da letra 
-e a exibição do ponteiro mouse para uma mão*/
-nav a{
     text-decoration: none;
-    color: var(--preto);
-    cursor: pointer;
-
-
 }
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*qualquer item com essa class
-muda o display para flex
-coloca o espaço vazio da horizontal no meio dos elementos
-alinha os itens na vertical com base no seu centro*/
-.logo-busca{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+:root {
+    --cor-primaria: #915F32;
+    --cor-secundaria: #CE9056;
+    --cor-tercearia: #E1E6EB;
+    --preto: black;
+    --branco: white;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;    
+    min-height: 100vh;
+    
 }
+
+header {
+    background-color:var(--cor-primaria);
+}
+
+#logo-busca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+#form-busca {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: solid .1625rem var(--preto);
+    border-radius: 1.25rem;
+}
+
+#logo {
+    font-family: "Special Elite", system-ui;
+    font-size: 56px;
+    color: var(--preto);
+}
+
+#busca {
+    width: 18.75rem;
+    height: 2.5rem;
+    outline: 0;
+    border: none;
+    border-radius: 1.25rem;
+    background-color: transparent;
+}
+
+#icon-busca {
+    left: 3.5%;
+    position: absolute;
+    z-index: 100;
+}
+
+#icon-mic {
+    right: 3.5%;
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+nav {
+    background-color: var(--cor-secundaria);
+    padding: 4px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+
+}
+
+nav > a {
+    font-family: "Special Elite", system-ui;
+    font-size: 24px;
+    color: var(--preto);
+    cursor: pointer;
+}
+
+nav > a:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-tercearia);
+}
+
+.alinhar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main {
     flex-grow: 1;
-    background-color: var(--terciaria);
-   
+    background-color: var(--cor-tercearia);
+    background-image: url(imgs/livro.jpeg);
 }
-#index {
-    background-image: url(../imgs/livro.jpeg);  
-    background-repeat: no-repeat;
-    background-position: center center;
+
+#conteudo-principal {
+    background-image: url(../imgs/livro.jpeg);
     background-size: 100% 100%;
-
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-footer{
+#conteudo-perfil, #conteudo-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    background-color: var(--cor-primaria);
+    font-family: "Special Elite", system-ui;
+    color: var(--cor-tercearia);
+    padding: 1px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    color: var(--terciaria);
+    align-items: center;
     text-align: center;
-    
+    gap: 48px;
 }
 
 #copy {
     text-align: start;
 }
-.alinhar{
+
+#img-social {
+    text-align: end;
+}
+
+#img-social img {
+    margin: 0 8px;
+}
+
+
+/* Estilização do Login & Cadastro */
+#conteudo-login, #conteudo-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-login, #modal-cadastro, #modal-perfil, #modal-categorias {
+    background-color: var(--cor-secundaria);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--cor-preto);
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    border: 3px solid black;
+    border-radius: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#modal-login {
+    height: 25rem;
+}
+
+#modal-cadastro {
+    height: 28rem;
+    width: 23rem;
+}
+
+#div-cadastro {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#modal-login > form, #modal-cadastro > form {
+    margin-top: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.input-login, .input-cadastro, .input-perfil {
+    display: flex;
+    flex-direction: column;
+    width: 18.75rem;
+    padding: 10px;
+}
+
+.input-login  > label, .input-cadastro  > label, .input-perfil  > label {
+    text-align: start;
+}
+
+.input-login > input, .input-cadastro > input, .input-perfil > input {
+    height: 30px;
+    background-color: var(--cor-tercearia);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#modal-login > form > button, #modal-cadastro > form > button, #modal-perfil > form > button, #btn-perfil > button, #add-categoria, #btn-add-categoria, #btn-edit-categoria {
+    text-align: center;
+    height: 30px;
+    width: 9.375rem;
+    margin-bottom: 10px;
+
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+#modal-login > form > button {
+    margin-bottom: 25px;
+}
+
+#modal-login > form > h1, p, a, #modal-cadastro > form > h1, p, a, #modal-perfil > form > h1, p, a  {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--cor-preto);
+}
+
+#criar-conta {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#criar-conta > p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--cor-preto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#modal-login > form > p, #modal-cadastro > form > p {
+    margin: 1px;
+}
+
+#termos-usos {
+    width: 20rem;
+    text-align: center;
+}
+
+/* Estilização do Perfil */
+#modal-perfil {
+    border: 3px solid black;
+    border-radius: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+#perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto > img {
+    height: 200px;
+    align-items: center;
+}
+
+#modal-perfil > form {
+    text-align: center;
+}
+
+/* Estilização da Categorias */
+#modal-categorias {
+    height: 38rem;
+    width: 60rem;
+    padding: 0px;
+    justify-content: start;
+    border-radius: 40px;
+}
+
+#btn-categorias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin: 0 auto;
+    width: 59rem;
+    height: 75px;
+    background-color: var(--cor-primaria);
+    font-family: "Special Elite", system-ui;
+}
+
+#btn-categorias > button {
+    margin: 0;
+}
+
+#btn-categorias > button:hover {
+    background-color: var(--cor-secundaria);
+    height: 2.5rem;
+    width: 10rem;
+}
+
+#tabela-categorias {
+    margin: auto;
+    width: 80%;
+    margin-top: 5px;
+
+    overflow-y: scroll;
+}
+
+#tabela-categorias::-webkit-scrollbar {
+    display: none;
+}
+
+.linhas-categoria{
+    background-color: var(--cor-tercearia);
+    border: 3px solid black;
+    border-radius: 40px;
+
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 0px 30px;
+}
+
+.linhas-categoria p {
+    font-family: "Special Elite", system-ui;
+    color: var(--cor-preto);
+    font-size: 1.5rem;
+}
+
+.acoes-categoria {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.acoes-categoria img, .btn-back img {
+    height: 30px;
+}
+
+.btn-edit {
     display: flex;
     align-items: center;
 }
-.img-fim img {
-    display: flex;
-    justify-content: end;
-}
-.img-fim img {
-    margin: 0 1rem;
+
+.btn-delet {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
+.btn-back {
+    height: 30px;
+    width: 7rem;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--cor-secundaria);
+}
+
+#input-add {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 60%;
+}
+
+#input-categorias, #input-edit-categorias {
+    height: 50px;
+    margin: auto;
+    background-color: var(--cor-tercearia);
+    border: 3px solid black;
+    border-radius: 40px;
+    padding: 5px;
+
+    font-family: "Special Elite", system-ui;
+    font-size: 2rem;
+    color: var(--cor-preto);
+    text-align: center;
+}
+
+#btn-add-categoria, #btn-edit-categoria {
+    height: 50px;
+    width: 20rem;
+    margin: auto;
+    padding: 0px;
+    border: none;
+    color: var(--cor-tercearia);
+}
+
+#btn-add-categoria > a, #btn-edit-categoria > a {
+    font-size: 2rem;
+}
+
+/* Estilização do Contato */
+
+#contatos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.div-contato {
+    background-color: var(--cor-primaria);
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-contato > img {
+    height: 80px;
+}
+
+/* Estilização do Quem Somos */
+#quem_somos {
+    font-family: "Special Elite", system-ui;
+    color: var(--cor-preto);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#quem_somos > h1, p {
+    margin: 24px auto;
+}
+
+#quem_somos > h1 {
+    background-color: var(--cor-primaria);
+    width: 300px;
+    padding: 4.8px;
+    border-radius: 10PX;
+}
+
+#quem_somos > p {
+    padding: 0 80px;
+    font-size: 40px;
+}
+
+/*Estilização do favorito*/
